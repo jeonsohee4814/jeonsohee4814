@@ -10,7 +10,9 @@ import lombok.NoArgsConstructor;
 @EqualsAndHashCode
 @Getter
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
-public class Balance {
+public class AccountBalance {
+    private String accountId;
+
     private long totalDeposit;
 
     private long totalWithdrawal;

@@ -10,6 +10,7 @@ import shjeon.task.banking.accountHistory.domain.AccountHistory;
 import shjeon.task.banking.accountHistory.jpo.AccountHistoryJpo;
 import shjeon.task.banking.accountHistory.repository.AccountHistoryRepository;
 import shjeon.task.banking.accountHistory.store.AccountHistoryStore;
+import shjeon.task.banking.balance.sdo.AccountBalance;
 import shjeon.task.banking.balance.sdo.Balance;
 
 @Repository
@@ -28,7 +29,12 @@ public class AccountHistoryJpaStore implements AccountHistoryStore {
     }
 
     @Override
-    public List<Balance> findBalanceByAccountId(List<String> accountIds) {
+    public List<AccountBalance> findBalanceByAccountId(List<String> accountIds) {
         return this.accountHistoryRepository.findBalanceByAccountId(accountIds);
+    }
+
+    @Override
+    public Balance findTotalBalancePerYear(String year) {
+        return accountHistoryRepository.findTotalBalancePerYear(year);
     }
 }

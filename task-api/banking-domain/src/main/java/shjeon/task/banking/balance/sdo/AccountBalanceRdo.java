@@ -10,10 +10,13 @@ import lombok.NoArgsConstructor;
 @EqualsAndHashCode
 @Getter
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
-public class BalanceRdo {
+public class AccountBalanceRdo {
+    private String accountId;
+
     private long balance;
 
-    public BalanceRdo(Balance balance) {
-        this.balance = balance.getTotalDeposit() - balance.getTotalWithdrawal();
+    public AccountBalanceRdo(AccountBalance accountBalance) {
+        this.accountId = accountBalance.getAccountId();
+        this.balance = accountBalance.getTotalDeposit() - accountBalance.getTotalWithdrawal();
     }
 }

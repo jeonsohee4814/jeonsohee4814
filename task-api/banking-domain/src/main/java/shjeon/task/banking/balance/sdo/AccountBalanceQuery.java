@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
-public class BalanceQuery {
+public class AccountBalanceQuery {
     private ArrayList<String> accountIds = new ArrayList();
 
 }

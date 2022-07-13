@@ -3,6 +3,7 @@ package shjeon.task.banking.accountHistory.store;
 import java.util.List;
 
 import shjeon.task.banking.accountHistory.domain.AccountHistory;
+import shjeon.task.banking.balance.sdo.AccountBalance;
 import shjeon.task.banking.balance.sdo.Balance;
 
 public interface AccountHistoryStore {
@@ -10,5 +11,7 @@ public interface AccountHistoryStore {
 
     void save(AccountHistory accountHistory);
 
-    List<Balance> findBalanceByAccountId(List<String> accountIds);
+    List<AccountBalance> findBalanceByAccountId(List<String> accountIds);
+
+    Balance findTotalBalancePerYear(String year);
 }

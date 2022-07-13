@@ -6,6 +6,7 @@ import java.util.stream.Collectors;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import shjeon.task.banking.accountHistory.store.AccountHistoryStore;
+import shjeon.task.banking.balance.sdo.AccountBalanceRdo;
 import shjeon.task.banking.balance.sdo.BalanceRdo;
 
 @Service
@@ -14,13 +15,17 @@ public class BalanceService {
 
     private final AccountHistoryStore accountHistoryStore;
 
-    public List<BalanceRdo> findBalanceByAccountId(List<String> accountIds, int offset, int limit) {
+    public List<AccountBalanceRdo> findBalanceByAccountId(List<String> accountIds, int offset, int limit) {
         return accountHistoryStore.findBalanceByAccountId(accountIds)
             .stream()
             .skip(offset)
             .limit(limit)
-            .map(BalanceRdo::new)
+            .map(AccountBalanceRdo::new)
             .collect(Collectors.toList());
+    }
+
+    public BalanceRdo findTotalBalancePerYear(String year) {
+        return new BalanceRdo(accountHistoryStore.findTotalBalancePerYear(year));
     }
 
 }

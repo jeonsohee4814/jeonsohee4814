@@ -17,7 +17,8 @@ import shjeon.task.banking.account.sdo.AccountIdRdo;
 import shjeon.task.banking.account.sdo.AccountQuery;
 import shjeon.task.banking.account.sdo.AccountRdo;
 import shjeon.task.banking.account.service.flow.AccountFlowService;
-import shjeon.task.banking.balance.sdo.BalanceRdoListRdo;
+import shjeon.task.banking.balance.sdo.AccountBalanceRdoListRdo;
+import shjeon.task.banking.balance.sdo.BalanceRdo;
 import shjeon.task.banking.balance.service.flow.BalanceFlowService;
 
 @RestController
@@ -34,7 +35,7 @@ public class BalanceController {
     }
 
     @GetMapping
-    public BalanceRdoListRdo findAccountBalanceByUserId(
+    public AccountBalanceRdoListRdo findAccountBalanceByUserId(
         @RequestParam(defaultValue = "0", required = false) int offset,
         @RequestParam(defaultValue = "30", required = false) int limit,
         @RequestParam String userId
@@ -48,6 +49,13 @@ public class BalanceController {
             .map(AccountRdo::getAccountId)
             .collect(Collectors.toList());
         return balanceFlowService.findBalanceByAccountId(accountIds, offset, limit);
+    }
+
+    @GetMapping("/totalBalancePerYear")
+    public BalanceRdo findTotalBalancePerYear(
+        @RequestParam String year
+    ) {
+        return balanceFlowService.findTotalBalancePerYear(year);
     }
 
 }

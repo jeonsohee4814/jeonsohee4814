@@ -2,20 +2,18 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>jeonsohee4814</artifactId>
+        <groupId>shjeon.task.banking</groupId>
+        <version>1.0.0</version>
+    </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>shjeon.task.banking</groupId>
-    <artifactId>jeonsohee4814</artifactId>
-    <version>${revision}</version>
-    <packaging>pom</packaging>
+    <artifactId>task-algorithm</artifactId>
 
     <properties>
-        <revision>1.0.0</revision>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
     </properties>
-
-    <modules>
-        <module>task-api</module>
-        <module>task-algorithm</module>
-    </modules>
 
 </project>

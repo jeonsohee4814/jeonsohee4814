@@ -10,8 +10,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 @Getter
-public class BalanceRdoListRdo {
-    private List<BalanceRdo> list;
+public class AccountBalanceRdoListRdo {
+    private List<AccountBalanceRdo> list;
 
     private int next;
 }
