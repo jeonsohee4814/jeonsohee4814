@@ -14,10 +14,7 @@
     </properties>
 
     <modules>
-        <module>banking-boot</module>
-        <module>banking-domain</module>
-        <module>banking-service</module>
-        <module>banking-store-jpa</module>
+        <module>task-api</module>
     </modules>
 
 </project>
